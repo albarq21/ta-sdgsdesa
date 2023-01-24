@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+     
+      <div class="row mt-3">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Daftar Akun Pengguna</h5>
+			  <div class="table-responsive">
+               <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col" name="Nama" >Nama</th>
+                      <th scope="col" name="email" >Email</th>
+                      <th scope="col" name="nomorhp" type="number" >Nomor Hp</th>
+                    </tr> 
+                    <div class="modal-body card-body register-card-body">
+                      <form action="{{ url_for('homepage.usermanager') }}" method="POST">
+                          <div class="form-group input-group">
+                            <input type="hidden"  name="id" value="{{row.id}}">
+                            <input type="text" class="form-control" name="name" placeholder="Full Name" value="{{row.nama}}">
+                            <div class="input-group-append">
+                              <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group input-group">
+                            <input type="text" class="form-control" name="telp" placeholder="Telp/No. Hp" value="{{row.telp}}">
+                            <div class="input-group-append">
+                              <div class="input-group-text">
+                                <span class="fas fa-address-book"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group input-group">
+                            <input type="text" class="form-control" name="email" placeholder="Email" value="{{row.email}}">
+                            <div class="input-group-append">
+                              <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group input-group">
+                            <select name="level" class="form-control" required>
+                              <option value="{{row.lvl}}" selected="selected" hidden="hidden">
+                                {% if row.lvl==1 %}Admin{% endif %}
+                                {% if row.lvl==2 %}Operator Geospasial{% endif %}
+                                {% if row.lvl==3 %}Operator Non-Geospasial{% endif %}
+                                {% if row.lvl==4 %}Super User{% endif %}
+                                {% if row.lvl==5 %}User{% endif %}
+                              </option>
+                              <option value="1">Admin</option>
+                              <option value="2">Operator Geospasial</option>
+                              <option value="3">Operator Non-Geospasial</option>
+                              <option value="4">Super User</option>
+                              <option value="5">User</option>
+                            </select>
+                            <div class="input-group-append">
+                              <div class="input-group-text">
+                                <span class="fas fa-sort-numeric-up"></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button class="btn btn-primary btn-wrn" type="submit">Ubah</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                          </div>
+                      </form>
+                    </div>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+      <!--End Row-->
+
+
+      <!--End Row-->
+      
+
+      <!--End Row-->
+      {% endblock %}

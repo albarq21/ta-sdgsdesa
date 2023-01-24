@@ -1,0 +1,23 @@
+{% extends 'base-index.html' %}
+
+{% block body %}
+<div class="content container">
+        <h2 class="page-title">Maps <small>Built-in google & vector maps</small></h2>
+        <div class="row">
+          <div class="col-xs-12">
+            <section class="widget">
+              <header>
+                <h4>
+                  <i class="fa fa-google-plus"></i>
+                  Google maps. Basic
+                </h4>
+              </header>
+              <div class="body">
+                <div class="map">
+                  <div id="gmap" style="height: 600px"></div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        {% endblock %}

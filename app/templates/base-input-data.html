@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<<<<<<< HEAD
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>SDGS DESA</title>
+  <!-- loader-->
+  <link href="../static/css/pace.min.css" rel="stylesheet"/>
+  <script src="../static/js/pace.min.js"></script>
+  <!--favicon-->
+  <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../static/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+  <!-- simplebar CSS-->
+  <link href="../static/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="../static/css/animate.css" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="../static/css/icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="../static/css/sidebar-menu.css" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="../static/css/app-style.css" rel="stylesheet"/>
+   <!--Full Calendar Css-->
+   <link href="../static/plugins/fullcalendar/css/fullcalendar.min.css" rel='stylesheet'/>
+=======
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STP Universitas Hasanuddin</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/img/favicon.png" rel="icon">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../static/plugins/dashboard/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="../static/plugins/dashboard/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="../static/plugins/dashboard/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="../static/plugins/dashboard/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../static/css/dashboard.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="../static/plugins/dashboard/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="../static/plugins/dashboard/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="../static/plugins/summernote/summernote-bs4.min.css">
+
+  <link href="../static/plugins/main/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  {% block head %}{% endblock %}
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+</head>
+
+<<<<<<< HEAD
+<body class="bg-theme bg-theme1">
+ 
+<!-- Start wrapper-->
+ <div id="wrapper">
+ 
+  <!--Start sidebar-wrapper-->
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+     <div class="brand-logo">
+      <a href="{{ url_for('homepage.home') }}">
+       <img src="../static/images/logo-icon.png" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">SDGS DESA</h5>
+     </a>
+   </div>
+   <ul class="sidebar-menu do-nicescrol">
+      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li>
+        <a href="{{ url_for('homepage.index') }}">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ url_for('homepage.icons') }}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="{{ url_for('homepage.usermanager') }}">
+          <i class="zmdi zmdi-accounts"></i> <span>Manajemen Pengguna</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ url_for('homepage.forms') }}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Kuisioner Individu</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ url_for('homepage.tables') }}">
+          <i class="zmdi zmdi-grid"></i> <span>Data Tabel</span>
+        </a>
+      </li>
+
+      <!-- <li>
+        <a href="{{ url_for('homepage.calendar') }}">
+          <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
+          <small class="badge float-right badge-light">New</small>
+        </a>
+      </li> -->
+
+      <li>
+        <a href="{{ url_for('homepage.profile') }}">
+          <i class="zmdi zmdi-account-circle"></i> <span>Profil</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ url_for('homepage.login') }}" target="_blank">
+          <i class="zmdi zmdi-lock"></i> <span>Masuk</span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{{ url_for('homepage.register') }}" target="_blank">
+          <i class="zmdi zmdi-account-box"></i> <span>Registrasi</span>
+        </a>
+      </li>
+
+      <li class="sidebar-header">LABELS</li>
+      <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
+      <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
+      <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+
+=======
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="../static/img/logo-stp-dark.png" alt="Science Techno Park" height="60">
+    </div>
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ url_for('main.home') }}" class="nav-link">Beranda</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ url_for('main.dashboard') }}" class="nav-link">Dashboard</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link active" disabled>Input Data</a>
+        </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+        <a class="nav-link nav-profile" data-toggle="dropdown" href="#">
+            {% if not foto %}
+            <img src="../static/img/user.png" class="img-circle profile" alt="User Image">
+            {% else %}
+            <img src="../static/img/uploaded_images/users/{{ foto }}" class="img-circle profile" alt="User Image">
+            {% endif %}
+            <i class="bi bi-chevron-down iprofile"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <div class="div-profile">
+                {% if not foto %}
+                <img src="../static/img/user.png" class="img-circle profile" alt="User Image">
+                {% else %}
+                <img src="../static/img/uploaded_images/users/{{ foto }}" class="img-circle profile" alt="User Image">
+                {% endif %}
+                <span class="profile-list">{{name}}</span>
+                <a class="profile-btn" href="{{ url_for('main.profil_me') }}">Profil</a>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="{{ url_for('auth.logout') }}" class="dropdown-footer"><i class="bi bi-box-arrow-right"></i>Keluar</a>
+        </div>
+        </li>
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+    </ul>
+   
+   </div>
+   <!--End sidebar-wrapper-->
+
+<<<<<<< HEAD
+<!--Start topbar header-->
+<header class="topbar-nav">
+ <nav class="navbar navbar-expand fixed-top">
+  <ul class="navbar-nav mr-auto align-items-center">
+    <li class="nav-item">
+      <a class="nav-link toggle-menu" href="javascript:void();">
+       <i class="icon-menu menu-icon"></i>
+     </a>
+    </li>
+    <li class="nav-item">
+      <form class="search-bar">
+        <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+      </form>
+    </li>
+  </ul>
+  <li class="nav-link"></i><a class="page-scroll" href="{{ url_for('homepage.inputdata') }}">Input Data</a></li>
+  <ul class="navbar-nav align-items-center right-nav-link">
+    <!-- <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-envelope-open-o"></i></a>
+    </li>
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-bell-o"></i></a>
+    </li> -->
+    <!-- <li class="nav-item language">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
+      <ul class="dropdown-menu dropdown-menu-right">
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
+          <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
+=======
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="{{ url_for('main.home') }}" class="brand-link">
+        <img src="../static/img/logo-stp.png" alt="Science Techno Park" class="brand-image" style="opacity: .8">
+        <span class="brand-text font-weight-light">Science Techno Park</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+            {% if not foto %}
+            <img src="../static/img/user.png" class="img-circle elevation-2" alt="User Image">
+            {% else %}
+            <img src="../static/img/uploaded_images/users/{{ foto }}" class="img-circle elevation-2" alt="User Image">
+            {% endif %}
+        </div>
+        <div class="info">
+            <a href="{{ url_for('main.profil_me') }}" class="d-block">{{ name }}</a>
+        </div>
+        </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+            <button class="btn btn-sidebar">
+                <i class="fas fa-search fa-fw"></i>
+            </button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+            <li class="nav-item">
+            {% if input_data_navbar %}
+            <a class="nav-link {{ input_data_navbar }}" disabled>
+            {% else %}
+            <a href="{{ url_for('main.input_data') }}" class="nav-link">
+            {% endif %}
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>Input Data</p>
+            </a>
+            </li>
+            <li class="nav-item {% if input_data_wilayah_navbar %} menu-is-opening menu-open {% endif %}">
+            <a href="" class="nav-link {{ input_data_wilayah_navbar }}">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <p>
+                Data Wilayah
+                <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                {% if input_data_provinsi_navbar %}
+                <a class="nav-link {{ input_data_provinsi_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_provinsi') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Provinsi</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                {% if input_data_kabupaten_navbar %}
+                <a class="nav-link {{ input_data_kabupaten_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_kabupaten') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kabupaten/Kota</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                {% if input_data_kecamatan_navbar %}
+                <a class="nav-link {{ input_data_kecamatan_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_kecamatan') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kecamatan</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                {% if input_data_desa_navbar %}
+                <a class="nav-link {{ input_data_desa_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_desa') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Desa</p>
+                </a>
+                </li>
+            </ul>
+            </li>
+            <li class="nav-item {% if input_data_pertanian_navbar %} menu-is-opening menu-open {% endif %}">
+            <a href="" class="nav-link {{ input_data_pertanian_navbar }}">
+                <i class="nav-icon fas fa-tree"></i>
+                <p>
+                Data Pertanian
+                <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                {% if input_data_gapoktan_navbar %}
+                <a class="nav-link {{ input_data_gapoktan_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_gapoktan') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Gapoktan</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                {% if input_data_kelompok_tani_navbar %}
+                <a class="nav-link {{ input_data_kelompok_tani_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_kelompok_tani') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kelompok Tani</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                {% if input_data_individu_petani_navbar %}
+                <a class="nav-link {{ input_data_individu_petani_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_individu_petani') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Individu Petani</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                {% if input_data_individu_lahan_navbar %}
+                <a class="nav-link {{ input_data_individu_lahan_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_individu_lahan') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Individu Lahan</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                {% if input_data_komoditas_navbar %}
+                <a class="nav-link {{ input_data_komoditas_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_komoditas') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Komoditas</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                {% if input_data_pupuk_navbar %}
+                <a class="nav-link {{ input_data_pupuk_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_pupuk') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pupuk</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                {% if input_data_racun_navbar %}
+                <a class="nav-link {{ input_data_racun_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('main.input_data_racun') }}" class="nav-link">
+                {% endif %}
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Racun</p>
+                </a>
+                </li>
+                <li class="nav-item {% if input_data_log_pertanian_navbar %} menu-is-opening menu-open {% endif %}">
+                <a href="" class="nav-link {{ input_data_log_pertanian_navbar }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                    Log
+                    <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    {% if input_data_log_tanam_navbar %}
+                    <a class="nav-link {{ input_data_log_tanam_navbar }}" disabled>
+                    {% else %}
+                    <a href="{{ url_for('main.input_data_log_tanam') }}" class="nav-link">
+                    {% endif %}
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>Log Tanam</p>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    {% if input_data_log_pupuk_pertanian_navbar %}
+                    <a class="nav-link {{ input_data_log_pupuk_pertanian_navbar }}" disabled>
+                    {% else %}
+                    <a href="{{ url_for('main.input_data_log_pupuk_pertanian') }}" class="nav-link">
+                    {% endif %}
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>Detail Log Pupuk</p>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    {% if input_data_log_racun_pertanian_navbar %}
+                    <a class="nav-link {{ input_data_log_racun_pertanian_navbar }}" disabled>
+                    {% else %}
+                    <a href="{{ url_for('main.input_data_log_racun_pertanian') }}" class="nav-link">
+                    {% endif %}
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>Detail Log Racun</p>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-egg"></i>
+                <p>
+                Data Peternakan
+                <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Coming Soon</p>
+                </a>
+                </li>
+            </ul>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-fish"></i>
+                <p>
+                Data Perikanan
+                <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Coming Soon</p>
+                </a>
+                </li>
+            </ul>
+            </li>
+            {% if level == 1 %}
+                <li class="nav-item">
+                {% if input_data_user_navbar %}
+                <a class="nav-link {{ input_data_user_navbar }}" disabled>
+                {% else %}
+                <a href="{{ url_for('auth.input_data_user') }}" class="nav-link">
+                {% endif %}
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>
+                    Data User
+                    </p>
+                </a>
+                </li>
+            {% endif %}
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+        </ul>
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+        <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+       <li class="dropdown-item user-details">
+        <a href="javaScript:void();">
+           <div class="media">
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+            <div class="media-body">
+            <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
+            <p class="user-subtitle">mccoy@example.com</p>
+            </div>
+           </div>
+          </a>
+        </li>
+        <!-- <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li> -->
+        <li class="dropdown-divider"></li>
+        <a href="{{ url_for('homepage.profile') }}"><li class="dropdown-item"><i class="zmdi zmdi-account-circle"></i>  Profil</li></a>
+        <!-- <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li> -->
+        <li class="dropdown-divider"></li>
+        <a href="{{ url_for('auth.logout') }}"><li class="dropdown-item"><i class="icon-power mr-2"></i>Keluar</li></a>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</header>
+<!--End topbar header-->
+
+
+        {% block body %}{% endblock %}
+        
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+          <!--end overlay-->
+          
+      </div>
+      <!-- End container-fluid-->
+      
+      </div><!--End content-wrapper-->
+     <!--Start Back To Top Button-->
+      <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+      <!--End Back To Top Button-->
+      
+      <!--Start footer-->
+      <footer class="footer">
+        <div class="container">
+          <div class="text-center">
+            Copyright © 2018 Dashtreme Admin
+          </div>
+        </div>
+      </footer>
+      <!--End footer-->
+      
+    <!--start color switcher-->
+     <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+  
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+        
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+  
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+        
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+        
+       </div>
+     </div>
+    <!--end color switcher-->
+     
+    </div><!--End wrapper-->
+  
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+      
+   <!-- simplebar js -->
+    <script src="../static/plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../static/js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../static/js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../static/js/app-script.js"></script>
+    <!-- Chart js -->
+    
+    <script src="../static/plugins/Chart.js/Chart.min.js"></script>
+   
+    <!-- Index js -->
+    <script src="../static/js/index.js"></script>
+  
+    
+  <!-- Full Calendar -->
+  <script src='../static/plugins/fullcalendar/js/moment.min.js'></script>
+  <script src='../static/plugins/fullcalendar/js/fullcalendar.min.js'></script>
+  <script src="../static/plugins/fullcalendar/js/fullcalendar-custom-script.js"></script>
+
+  </body>
+  </html>

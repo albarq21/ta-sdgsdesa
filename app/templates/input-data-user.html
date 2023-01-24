@@ -1,0 +1,388 @@
+{% extends 'base-input-data.html' %}
+
+{% block head %}
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../static/plugins/dashboard/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../static/plugins/dashboard/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../static/plugins/dashboard/datatables-buttons/css/buttons.bootstrap4.min.css">
+{% endblock %}
+
+{% block body %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Data User</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{{ url_for('homepage.home') }}">Beranda</a></li>
+              <li class="breadcrumb-item"><a href="{{ url_for('homepage.inputdata') }}">Input Data</a></li>
+              <li class="breadcrumb-item active">Data User</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-success alert-dismissable" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                      <span aria-hidden="true" class="bi bi-x-lg"></span>
+                  </button>
+                {% if category == 'pass-error'%}
+                  {{ message }}.
+                {% else %}
+                  {{ message }}.
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content-header -->
+
+    <!-- homepage -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Data Table User</h3>
+                <a class="add-input-data-btn" href="" data-toggle="modal" data-target="#mymodal">Tambah</a>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>Nama</th>
+                      <th>Email</th>
+                      <th>Telp/No. Hp</th>
+                      <th>Level</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for row in user %}
+                      <tr>
+                        <td>{{row.nama}}</td>
+                        <td>{{row.email}}</td>
+                        <td>{{row.telp}}</td>
+                        <td>
+                          {% if row.level==1 %}Admin{% endif %}
+                          {% if row.level==2 %}Operator Geospasial{% endif %}
+                          {% if row.level==3 %}Operator Non-Geospasial{% endif %}
+                          {% if row.level==4 %}Super User{% endif %}
+                          {% if row.level==5 %}User{% endif %}
+                        </td>
+                        <td>
+<<<<<<< HEAD
+                          <a class="edit-input-data-btn" href="/input-data/data-user/update/{{row.id}}" data-toggle="modal" data-target="#modaledit{{row.id}}">Ubah</a>
+                          <a class="delete-input-data-btn" href="/input-data/data-user/delete/{{row.id}}" data-toggle="modal" data-target="#modaldelete{{row.id}}">Hapus</a>
+=======
+                          <a class="edit-input-data-btn" href="/input-data/data-user/update/{{row.id_users}}" data-toggle="modal" data-target="#modaledit{{row.id_users}}">Ubah</a>
+                          <a class="delete-input-data-btn" href="/input-data/data-user/delete/{{row.id_users}}" data-toggle="modal" data-target="#modaldelete{{row.id_users}}">Hapus</a>
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                  <tfoot>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+  <!-- Modal Edit User-->
+  {% for row in user %}
+    <div id="modaledit{{row.id_users}}" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Ubah Data User</h4>
+            </div>
+            <div class="modal-body card-body register-card-body">
+              <form action="{{ url_for('auth.input_data_user_update') }}" method="POST">
+                  <div class="form-group input-group">
+<<<<<<< HEAD
+                    <input type="hidden"  name="id" value="{{row.id}}">
+=======
+                    <input type="hidden"  name="id" value="{{row.id_users}}">
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+                    <input type="text" class="form-control" name="name" placeholder="Full Name" value="{{row.nama}}">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-user"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group input-group">
+                    <input type="text" class="form-control" name="telp" placeholder="Telp/No. Hp" value="{{row.telp}}">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-address-book"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group input-group">
+                    <input type="text" class="form-control" name="email" placeholder="Email" value="{{row.email}}">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group input-group">
+                    <select name="level" class="form-control" required>
+<<<<<<< HEAD
+                      <option value="{{row.lvl}}" selected="selected" hidden="hidden">
+                        {% if row.lvl==1 %}Admin{% endif %}
+                        {% if row.lvl==2 %}Operator Geospasial{% endif %}
+                        {% if row.lvl==3 %}Operator Non-Geospasial{% endif %}
+                        {% if row.lvl==4 %}Super User{% endif %}
+                        {% if row.lvl==5 %}User{% endif %}
+=======
+                      <option value="{{row.level}}" selected="selected" hidden="hidden">
+                        {% if row.level==1 %}Admin{% endif %}
+                        {% if row.level==2 %}Operator Geospasial{% endif %}
+                        {% if row.level==3 %}Operator Non-Geospasial{% endif %}
+                        {% if row.level==4 %}Super User{% endif %}
+                        {% if row.level==5 %}User{% endif %}
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+                      </option>
+                      <option value="1">Admin</option>
+                      <option value="2">Operator Geospasial</option>
+                      <option value="3">Operator Non-Geospasial</option>
+                      <option value="4">Super User</option>
+                      <option value="5">User</option>
+                    </select>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-sort-numeric-up"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary btn-wrn" type="submit">Ubah</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                  </div>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+              
+  <!-- Modal Add User-->
+  <div id="mymodal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Tambah User</h4>
+          </div>
+          <div class="modal-body card-body register-card-body">
+            <form action="{{url_for('auth.input_data_user_add')}}" method="POST">
+                <div class="form-group input-group">
+                  <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-user"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group input-group">
+<<<<<<< HEAD
+                  <input type="number" class="form-control" name="nohp" placeholder="Telp/No. Hp" required>
+=======
+                  <input type="number" class="form-control" name="telp" placeholder="Telp/No. Hp" required>
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-address-book"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group input-group">
+                  <input type="email" class="form-control" name="email" placeholder="Email" required>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-envelope"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group input-group">
+                  <input type="password" class="form-control" name="password" placeholder="Password" required>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-lock"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group input-group">
+                  <input type="password" class="form-control" placeholder="Retype Password" name="repassword" required>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-lock"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group input-group mb-3">
+                  <select name="level" class="form-control add" required>
+                    <option value="" disabled selected hidden>Level</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Operator Geospasial</option>
+                    <option value="3">Operator Non-Geospasial</option>
+                    <option value="4">Super User</option>
+                    <option value="5">User</option>
+                  </select>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-sort-numeric-up"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary btn-success" type="submit">Tambah</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Delete User-->
+<<<<<<< HEAD
+  <!-- {% for row in user %}
+    <div id="modaldelete{{row.id}}" class="modal fade" role="dialog">
+=======
+  {% for row in user %}
+    <div id="modaldelete{{row.id_users}}" class="modal fade" role="dialog">
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Hapus Data User</h4>
+            </div>
+            <div class="modal-body card-body register-card-body">
+              <h6><b>Full Name</b></h6>
+              <div class="form-group input-group">
+<<<<<<< HEAD
+                <input type="hidden"  name="id" value="{{row.id}}">
+=======
+                <input type="hidden"  name="id" value="{{row.id_users}}">
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+                <input type="text" class="form-control" value="{{row.nama}}" disabled>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                  </div>
+                </div>
+              </div>
+              <h6><b>Telp/No. Hp</b></h6>
+              <div class="form-group input-group">
+                <input type="number" class="form-control" value="{{row.telp}}" disabled>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-address-book"></span>
+                  </div>
+                </div>
+              </div>
+              <h6><b>Email</b></h6>
+              <div class="form-group input-group">
+                <input type="email" class="form-control" value="{{row.email}}" disabled>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+              </div>
+              <h6><b>Level</b></h6>
+              <div class="form-group input-group mb-3">
+                <input type="text" class="form-control"
+<<<<<<< HEAD
+                  {% if row.lvl==1 %}value="Admin"{% endif %}
+                  {% if row.lvl==2 %}value="Operator Geospasial"{% endif %}
+                  {% if row.lvl==3 %}value="Operator Non-Geospasial"{% endif %}
+                  {% if row.lvl==4 %}value="Super User"{% endif %}
+                  {% if row.lvl==5 %}value="User"{% endif %}
+=======
+                  {% if row.level==1 %}value="Admin"{% endif %}
+                  {% if row.level==2 %}value="Operator Geospasial"{% endif %}
+                  {% if row.level==3 %}value="Operator Non-Geospasial"{% endif %}
+                  {% if row.level==4 %}value="Super User"{% endif %}
+                  {% if row.level==5 %}value="User"{% endif %}
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+                disabled>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-sort-numeric-up"></span>
+                  </div>
+                </div>
+              </div>
+              <form action="{{ url_for('auth.input_data_user_delete') }}" method="POST">
+                  <div class="modal-footer">
+<<<<<<< HEAD
+                    <input type="hidden"  name="id" value="{{row.id}}">
+=======
+                    <input type="hidden"  name="id" value="{{row.id_users}}">
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+                    <button class="btn btn-primary btn-dgr" type="submit">Hapus</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                  </div>
+              </form>
+            </div>
+        </div>
+      </div>
+<<<<<<< HEAD
+    </div> -->
+=======
+    </div>
+>>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
+  {% endfor %}
+{% endblock %}
+
+{% block scripts %}
+  <!-- DataTables  & Plugins -->
+  <script src="../static/plugins/dashboard/datatables/jquery.dataTables.min.js"></script>
+  <script src="../static/plugins/dashboard/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../static/plugins/dashboard/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../static/plugins/dashboard/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="../static/plugins/dashboard/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="../static/plugins/dashboard/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="../static/plugins/dashboard/jszip/jszip.min.js"></script>
+  <script src="../static/plugins/dashboard/pdfmake/pdfmake.min.js"></script>
+  <script src="../static/plugins/dashboard/pdfmake/vfs_fonts.js"></script>
+  <script src="../static/plugins/dashboard/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="../static/plugins/dashboard/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="../static/plugins/dashboard/datatables-buttons/js/buttons.colVis.min.js"></script>
+  <script>
+    $(function () {
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
+{% endblock %}
