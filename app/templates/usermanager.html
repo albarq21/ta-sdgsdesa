@@ -37,6 +37,7 @@
                       <th scope="col">Email</th>
                       <th scope="col">Nomor Hp</th>
                       <th scope="col">Jabatan</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -47,6 +48,12 @@
                       <td>{{row.email}}</td>
                       <td>{{row.nomorhp}}</td>
                       <td>{{row.lvl}}</td>
+                      <td scope="col">
+                        <div class="form-group">
+                          <button value="deskpend" name="submit" type="submit" class="btn btn-light btn-round px-1"></i>Ubah</button>
+                          <!-- href"/update/{{row.id}} data-toggle="modal" data-target="#modaledit{{row.id}}"                                       -->
+                          <button value="deskpend" name="submit" type="submit" class="btn btn-light btn-round px-1"></i>Hapus</button>
+                        </div></td>
                     </tr>
                     {% endfor %}
                     <!-- <tr>
