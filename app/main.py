@@ -238,10 +238,17 @@ def tables():
 
     if request.method == 'POST' :
         edit = request.form.get('ubah')
+        hapus = request.form.get('hapus')
         if edit:
             id = request.form.get('ubah')
             return redirect(url_for('homepage.forms', id=id))
-        
+        elif hapus:
+            delete = Kuisioner_Individu.query.get(hapus)
+
+            db.session.delete(delete)
+            db.session.commit()
+            return redirect(url_for('homepage.tables', Kuisioner_Individu=Kuisindiv))
+
     return render_template('tables.html', Kuisioner_Individu=Kuisindiv)
 
 
