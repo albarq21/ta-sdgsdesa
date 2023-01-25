@@ -271,11 +271,12 @@
                                       <!-- <td>{{row.Tempat_Lahir}}</td> -->                                      
                                       <td>{{row.Pekerjaan_Utama}}</td>
                                       <td scope="col">
+                                        <form action="{{ url_for('homepage.tables') }}" method="POST">
                                         <div class="form-group">
-                                          <button value="deskpend" name="submit" type="submit" class="btn btn-light btn-round px-1"></i>Ubah</button>
+                                          <button value="{{row.id}}" name="ubah" type="submit" class="btn btn-light btn-round px-1"></i>Ubah</button>
                                           <!-- href"/update/{{row.id}} data-toggle="modal" data-target="#modaledit{{row.id}}"                                       -->
-                                          <button value="deskpend" name="submit" type="submit" class="btn btn-light btn-round px-1"></i>Hapus</button>
-                                        </div></td>
+                                          <button value="hapus" name="hapus" type="submit" class="btn btn-light btn-round px-1"></i>Hapus</button>
+                                        </div></form></td>
                                       <!-- <td>{{row.Tanggal_Lahir}}</td> -->
                                       <!-- <td>{{row.Status_Perkawinan}}</td> -->
                                       <!-- <td>{{row.Agama}}</td> -->

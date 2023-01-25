@@ -44,151 +44,205 @@ def index():
 @login_required
 def icons():
     return render_template('icons.html')
- 
-@main.route("/forms", methods=['GET','POST'])
+
+@main.route("/forms", methods=['GET', 'POST'])
+@main.route("/forms/<id>", methods=['GET','POST'])
 @login_required
-def forms():    
-    if request.method == 'POST' :
-        # if request.form ['submit'] =='deskindiv':
-        Nomor_KK=request.form['NoKK']
-        Jumlah_Anggota_Keluarga=request.form['JumlahAK']
-        Nama_Kepala_Keluarga=request.form['NamaKK']
-        Jenis_Kelamin_Keluarga=request.form['JKKK']
-        NIK=request.form['NIK']
-        Nama_Lengkap=request.form['Namalkp']
-        Jenis_Kelamin=request.form['JK']
-        Tempat_Lahir=request.form['tempatlhr']
-        Tanggal_Lahir=request.form['tgllhr']
-        Status_Perkawinan=request.form['Skwn']
-        Agama=request.form['Agama']
-        Suku=request.form['Suku']
-        Warga_Negara=request.form['warganeg']
-        Nomor_Telp=request.form['notelp']
-        Nomor_Wa=request.form['nowa']
-        Email=request.form['email']
-        Media_Sosial=request.form['akunmedsos']
-        
-        # elif request.form ['submit'] =='deskjob': 
-        Kondisi_Pekerjaan=request.form['konjob']
-        Pekerjaan_Utama=request.form['jobut']
-        Jaminan_Sosial_Ketenagakerjaan=request.form['bpjs']
-        Penghasilan_Sebulan_Terakhir=request.form['peng1bln']
-        Pengeluaran_Sebulan_Terakhir=request.form['penlu1bln']
-        Kepemilikan_Rumah=request.form['keprmh']
-        Kepemilikan_Lahan_Luas=request.form['keplhn']
-
-        # elif request.form ['submit'] =='deskkes':
-        Penyakit_Setahun_Terakhir=request.form['penyakit']
-        Fasilitas_Kesehatan_Dikunjungi=request.form['faskes']
-        Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi=request.form['jmlhfaskes']
-        Jaminan_Kesehatan_Asuransi_KIS=request.form['kis']
-        Disabilitas=request.form['disabil']
-
-        # elif request.form ['submit'] =='deskpend':
-        Pendidikan_Terakhir=request.form['pendidk']
-        Bahasa_Digunakan_Dirumah=request.form['bhs']
-        Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja=request.form['bhsskl']
-        Kerja_Bakti_Setahun_Terakhir=request.form['krjbkti']
-        Siskamling_Setahun_Terakhir=request.form['siskaeee']
-        Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan=request.form['pestaryt']
-        Menolong_warga_Mengalami_Kematian_Setahun_Terakhir=request.form['tlngdet']
-        Menolong_warga_Mengalami_Sakit_Setahun_Terakhir=request.form['tlngskt']
-        Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir=request.form['tlnglaka']
-
-        # Analisis Pengeluaran Perkapita
-        ldata = int(Pengeluaran_Sebulan_Terakhir) / int(Jumlah_Anggota_Keluarga) 
-
-
-        add_data_Kuisioner_Individu = Kuisioner_Individu(Analisis_Pengeluaran_Perkapita=ldata,
-                                        Nomor_KK=Nomor_KK,
-                                        Jumlah_Anggota_Keluarga=Jumlah_Anggota_Keluarga,
-                                        Nama_Kepala_Keluarga=Nama_Kepala_Keluarga,
-                                        Jenis_Kelamin_Keluarga=Jenis_Kelamin_Keluarga,
-                                        NIK=NIK,
-                                        Nama_Lengkap=Nama_Lengkap,
-                                        Jenis_Kelamin=Jenis_Kelamin,
-                                        Tempat_Lahir=Tempat_Lahir,
-                                        Tanggal_Lahir=Tanggal_Lahir,
-                                        Status_Perkawinan=Status_Perkawinan,
-                                        Agama=Agama,
-                                        Suku=Suku,
-                                        Warga_Negara=Warga_Negara,
-                                        Nomor_Telp=Nomor_Telp,
-                                        Nomor_Wa=Nomor_Wa,
-                                        Email=Email,
-                                        Media_Sosial=Media_Sosial,
-                                        # Deskjob
-                                        Kondisi_Pekerjaan=Kondisi_Pekerjaan,
-                                        Pekerjaan_Utama=Pekerjaan_Utama,
-                                        Jaminan_Sosial_Ketenagakerjaan=Jaminan_Sosial_Ketenagakerjaan,
-                                        Penghasilan_Sebulan_Terakhir=Penghasilan_Sebulan_Terakhir,
-                                        Pengeluaran_Sebulan_Terakhir=Pengeluaran_Sebulan_Terakhir,
-                                        Kepemilikan_Rumah=Kepemilikan_Rumah,
-                                        Kepemilikan_Lahan_Luas=Kepemilikan_Lahan_Luas,
-                                        # Deskkes
-                                        Penyakit_Setahun_Terakhir=Penyakit_Setahun_Terakhir,
-                                        Fasilitas_Kesehatan_Dikunjungi=Fasilitas_Kesehatan_Dikunjungi,
-                                        Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi=Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi,
-                                        Jaminan_Kesehatan_Asuransi_KIS=Jaminan_Kesehatan_Asuransi_KIS,
-                                        Disabilitas=Disabilitas,
-                                        # Deskpend
-                                        Pendidikan_Terakhir=Pendidikan_Terakhir,
-                                        Bahasa_Digunakan_Dirumah=Bahasa_Digunakan_Dirumah,
-                                        Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja=Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja,
-                                        Kerja_Bakti_Setahun_Terakhir=Kerja_Bakti_Setahun_Terakhir,
-                                        Siskamling_Setahun_Terakhir=Siskamling_Setahun_Terakhir,
-                                        Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan=Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan,
-                                        Menolong_warga_Mengalami_Kematian_Setahun_Terakhir=Menolong_warga_Mengalami_Kematian_Setahun_Terakhir,
-                                        Menolong_warga_Mengalami_Sakit_Setahun_Terakhir=Menolong_warga_Mengalami_Sakit_Setahun_Terakhir,
-                                        Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir=Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir,
-
-                                        )
-            # db.session.add(add_data_deskindiv)
-                                     
-
+def forms(id=None):
+    if id:
+        update = Kuisioner_Individu.query.filter_by(id=id).first()
             
+        return render_template('forms.html', row = update, id=id)
+    else:
+        if request.method == 'POST' :
+            edit = request.form.get('edit')
+            print (edit)
+            if edit:
+                update = Kuisioner_Individu.query.get(request.form.get('edit'))
+
+                update.Nomor_KK=request.form['NoKK']
+                update.Jumlah_Anggota_Keluarga=request.form['JumlahAK']
+                update.Nama_Kepala_Keluarga=request.form['NamaKK']
+                update.Jenis_Kelamin_Keluarga=request.form['JKKK']
+                update.NIK=request.form['NIK']
+                update.Nama_Lengkap=request.form['Namalkp']
+                update.Jenis_Kelamin=request.form['JK']
+                update.Tempat_Lahir=request.form['tempatlhr']
+                update.Tanggal_Lahir=request.form['tgllhr']
+                update.Status_Perkawinan=request.form['Skwn']
+                update.Agama=request.form['Agama']
+                update.Suku=request.form['Suku']
+                update.Warga_Negara=request.form['warganeg']
+                update.Nomor_Telp=request.form['notelp']
+                update.Nomor_Wa=request.form['nowa']
+                update.Email=request.form['email']
+                update.Media_Sosial=request.form['akunmedsos']
+                
+                # elif request.form ['submit'] =='deskjob': 
+                update.Kondisi_Pekerjaan=request.form['konjob']
+                update.Pekerjaan_Utama=request.form['jobut']
+                update.Jaminan_Sosial_Ketenagakerjaan=request.form['bpjs']
+                update.Penghasilan_Sebulan_Terakhir=request.form['peng1bln']
+                update.Pengeluaran_Sebulan_Terakhir=request.form['penlu1bln']
+                update.Kepemilikan_Rumah=request.form['keprmh']
+                update.Kepemilikan_Lahan_Luas=request.form['keplhn']
+
+                # elif request.form ['submit'] =='deskkes':
+                update.Penyakit_Setahun_Terakhir=request.form['penyakit']
+                update.Fasilitas_Kesehatan_Dikunjungi=request.form['faskes']
+                update.Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi=request.form['jmlhfaskes']
+                update.Jaminan_Kesehatan_Asuransi_KIS=request.form['kis']
+                update.Disabilitas=request.form['disabil']
+
+                # elif request.form ['submit'] =='deskpend':
+                update.Pendidikan_Terakhir=request.form['pendidk']
+                update.Bahasa_Digunakan_Dirumah=request.form['bhs']
+                update.Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja=request.form['bhsskl']
+                update.Kerja_Bakti_Setahun_Terakhir=request.form['krjbkti']
+                update.Siskamling_Setahun_Terakhir=request.form['siskaeee']
+                update.Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan=request.form['pestaryt']
+                update.Menolong_warga_Mengalami_Kematian_Setahun_Terakhir=request.form['tlngdet']
+                update.Menolong_warga_Mengalami_Sakit_Setahun_Terakhir=request.form['tlngskt']
+                update.Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir=request.form['tlnglaka']
+
+                db.session.commit()
+                flash("Data berhasil diubah")
+
+                return redirect(url_for('homepage.tables'))
+                
+            # if request.form ['submit'] =='deskindiv':
+            Nomor_KK=request.form['NoKK']
+            Jumlah_Anggota_Keluarga=request.form['JumlahAK']
+            Nama_Kepala_Keluarga=request.form['NamaKK']
+            Jenis_Kelamin_Keluarga=request.form['JKKK']
+            NIK=request.form['NIK']
+            Nama_Lengkap=request.form['Namalkp']
+            Jenis_Kelamin=request.form['JK']
+            Tempat_Lahir=request.form['tempatlhr']
+            Tanggal_Lahir=request.form['tgllhr']
+            Status_Perkawinan=request.form['Skwn']
+            Agama=request.form['Agama']
+            Suku=request.form['Suku']
+            Warga_Negara=request.form['warganeg']
+            Nomor_Telp=request.form['notelp']
+            Nomor_Wa=request.form['nowa']
+            Email=request.form['email']
+            Media_Sosial=request.form['akunmedsos']
             
-            # add_data_deskjob = Kuisioner_Individu( ,
+            # elif request.form ['submit'] =='deskjob': 
+            Kondisi_Pekerjaan=request.form['konjob']
+            Pekerjaan_Utama=request.form['jobut']
+            Jaminan_Sosial_Ketenagakerjaan=request.form['bpjs']
+            Penghasilan_Sebulan_Terakhir=request.form['peng1bln']
+            Pengeluaran_Sebulan_Terakhir=request.form['penlu1bln']
+            Kepemilikan_Rumah=request.form['keprmh']
+            Kepemilikan_Lahan_Luas=request.form['keplhn']
 
-            #                                 )
-            # db.session.add(add_data_deskjob)
+            # elif request.form ['submit'] =='deskkes':
+            Penyakit_Setahun_Terakhir=request.form['penyakit']
+            Fasilitas_Kesehatan_Dikunjungi=request.form['faskes']
+            Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi=request.form['jmlhfaskes']
+            Jaminan_Kesehatan_Asuransi_KIS=request.form['kis']
+            Disabilitas=request.form['disabil']
 
-        # elif request.form ['submit'] =='deskkes':
+            # elif request.form ['submit'] =='deskpend':
+            Pendidikan_Terakhir=request.form['pendidk']
+            Bahasa_Digunakan_Dirumah=request.form['bhs']
+            Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja=request.form['bhsskl']
+            Kerja_Bakti_Setahun_Terakhir=request.form['krjbkti']
+            Siskamling_Setahun_Terakhir=request.form['siskaeee']
+            Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan=request.form['pestaryt']
+            Menolong_warga_Mengalami_Kematian_Setahun_Terakhir=request.form['tlngdet']
+            Menolong_warga_Mengalami_Sakit_Setahun_Terakhir=request.form['tlngskt']
+            Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir=request.form['tlnglaka']
 
-            
-
-            
-            # add_data_deskkes = Kuisioner_Individu( ,
-            #                                 )
-            # db.session.add(add_data_deskkes)
-
-        # elif request.form ['submit'] =='deskpend':
-
-            
-
-
-            #  add_data_Kuisioner_Individu = Kuisioner_Individu( )
-                                            
-        db.session.add(add_data_Kuisioner_Individu)
-
-
+            # Analisis Pengeluaran Perkapita
+            ldata = int(Pengeluaran_Sebulan_Terakhir) / int(Jumlah_Anggota_Keluarga) 
 
 
+            add_data_Kuisioner_Individu = Kuisioner_Individu(Analisis_Pengeluaran_Perkapita=ldata,
+                                            Nomor_KK=Nomor_KK,
+                                            Jumlah_Anggota_Keluarga=Jumlah_Anggota_Keluarga,
+                                            Nama_Kepala_Keluarga=Nama_Kepala_Keluarga,
+                                            Jenis_Kelamin_Keluarga=Jenis_Kelamin_Keluarga,
+                                            NIK=NIK,
+                                            Nama_Lengkap=Nama_Lengkap,
+                                            Jenis_Kelamin=Jenis_Kelamin,
+                                            Tempat_Lahir=Tempat_Lahir,
+                                            Tanggal_Lahir=Tanggal_Lahir,
+                                            Status_Perkawinan=Status_Perkawinan,
+                                            Agama=Agama,
+                                            Suku=Suku,
+                                            Warga_Negara=Warga_Negara,
+                                            Nomor_Telp=Nomor_Telp,
+                                            Nomor_Wa=Nomor_Wa,
+                                            Email=Email,
+                                            Media_Sosial=Media_Sosial,
+                                            # Deskjob
+                                            Kondisi_Pekerjaan=Kondisi_Pekerjaan,
+                                            Pekerjaan_Utama=Pekerjaan_Utama,
+                                            Jaminan_Sosial_Ketenagakerjaan=Jaminan_Sosial_Ketenagakerjaan,
+                                            Penghasilan_Sebulan_Terakhir=Penghasilan_Sebulan_Terakhir,
+                                            Pengeluaran_Sebulan_Terakhir=Pengeluaran_Sebulan_Terakhir,
+                                            Kepemilikan_Rumah=Kepemilikan_Rumah,
+                                            Kepemilikan_Lahan_Luas=Kepemilikan_Lahan_Luas,
+                                            # Deskkes
+                                            Penyakit_Setahun_Terakhir=Penyakit_Setahun_Terakhir,
+                                            Fasilitas_Kesehatan_Dikunjungi=Fasilitas_Kesehatan_Dikunjungi,
+                                            Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi=Jumlah_Berapa_Kali_Fasilitas_Kesehatan_Dikunjungi,
+                                            Jaminan_Kesehatan_Asuransi_KIS=Jaminan_Kesehatan_Asuransi_KIS,
+                                            Disabilitas=Disabilitas,
+                                            # Deskpend
+                                            Pendidikan_Terakhir=Pendidikan_Terakhir,
+                                            Bahasa_Digunakan_Dirumah=Bahasa_Digunakan_Dirumah,
+                                            Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja=Bahasa_Digunakan_Disekolah_Kantor_Tempat_Kerja,
+                                            Kerja_Bakti_Setahun_Terakhir=Kerja_Bakti_Setahun_Terakhir,
+                                            Siskamling_Setahun_Terakhir=Siskamling_Setahun_Terakhir,
+                                            Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan=Pesta_Rakyat_atau_Adat_Terakhir_Dilaksanakan,
+                                            Menolong_warga_Mengalami_Kematian_Setahun_Terakhir=Menolong_warga_Mengalami_Kematian_Setahun_Terakhir,
+                                            Menolong_warga_Mengalami_Sakit_Setahun_Terakhir=Menolong_warga_Mengalami_Sakit_Setahun_Terakhir,
+                                            Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir=Menolong_warga_Mengalami_Kecelakaan_Setahun_Terakhir,
 
-        db.session.commit()
-        flash("Data Telah Dimasukkan :)")
+                                            )
+                # db.session.add(add_data_deskindiv)
+                                        
 
-        
+                
+                
+                # add_data_deskjob = Kuisioner_Individu( ,
 
-        
+                #                                 )
+                # db.session.add(add_data_deskjob)
 
-    return render_template('forms.html')
+            # elif request.form ['submit'] =='deskkes':
+                
+                # add_data_deskkes = Kuisioner_Individu( ,
+                #                                 )
+                # db.session.add(add_data_deskkes)
 
-@main.route("/tables")
+            # elif request.form ['submit'] =='deskpend':
+
+                #  add_data_Kuisioner_Individu = Kuisioner_Individu( )
+                                                
+            db.session.add(add_data_Kuisioner_Individu)
+
+            db.session.commit()
+            flash("Data Telah Dimasukkan :)")        
+
+        return render_template('forms.html')
+
+@main.route("/tables", methods=['GET','POST'])
 @login_required
 def tables():
     Kuisindiv = Kuisioner_Individu.query.all()
-    return render_template('tables.html',Kuisioner_Individu=Kuisindiv)
+
+    if request.method == 'POST' :
+        edit = request.form.get('ubah')
+        if edit:
+            id = request.form.get('ubah')
+            return redirect(url_for('homepage.forms', id=id))
+        
+    return render_template('tables.html', Kuisioner_Individu=Kuisindiv)
 
 
 @main.route("/hasil_analisis")
