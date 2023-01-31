@@ -256,7 +256,12 @@ def tables():
 @login_required
 def hasil_analisis():
     Kuisindiv = Kuisioner_Individu.query.all()
-    return render_template('hasil_analisis.html',Kuisioner_Individu=Kuisindiv)
+
+    data = '500000'
+    minus = Kuisioner_Individu.query.filter(Kuisioner_Individu.Analisis_Pengeluaran_Perkapita <= data)
+    plus = Kuisioner_Individu.query.filter(Kuisioner_Individu.Analisis_Pengeluaran_Perkapita > data)
+
+    return render_template('hasil_analisis.html', Kuisioner_Individu=Kuisindiv, Minus=minus, Plus=plus)
 
 
 
