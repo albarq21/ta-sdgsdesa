@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/logo-unhas.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -35,11 +35,16 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
+      <!-- <h1 class="logo me-auto"><a href="index.html">STP</a></h1> -->
+      <!-- <a href="http://127.0.0.1:5000/" class="logo me-auto"><img src="../static/img/logo-unhas.png" alt="" class="img-fluid"></a> -->
+
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
           <!-- <li><a class="nav-link scrollto" href="#about">Profil STP</a></li>
           <li><a class="nav-link scrollto" href="#services">Kerjasama</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Informasi Kegiatan</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Internet Masuk Desa</a></li>
@@ -67,22 +72,14 @@
           {% if current_user.is_authenticated %}
             <div class="dropdown">
               <div id="nav-profile" class="nav-profile">
-                {% if not foto %}
-                <img src="../static/img/user.png" class="img-circle profile" alt="User Image">
-                {% else %}
-                <img src="../static/img/uploaded_images/users/{{ foto }}" class="img-circle profile" alt="User Image">
-                {% endif %}
+                <img src="../static/img/user.png" class="profile" alt="User Image">
                 <i class="bi bi-chevron-down iprofile"></i>
               </div>
               <div class="dropdown-profile-right" id="dropdown-profile-right">
                 <div class="div-profile">
-                  {% if not foto %}
-                  <img src="../static/img/user.png" class="img-circle profile" alt="User Image">
-                  {% else %}
-                  <img src="../static/img/uploaded_images/users/{{ foto }}" class="img-circle profile" alt="User Image">
-                  {% endif %}
+                  <img src="../static/img/user.png" class="profile" alt="User Image">
                   <span class="profile-list">{{name}}</span>
-                  <a class="profile-btn" href="{{ url_for('main.profil_me') }}">Profil</a>
+                  <a class="profile-btn" href="#">Edit Profil</a>
                 </div>
                 <div class="dropdown-divider"></div>
                 <a href="{{ url_for('auth.logout') }}" class="dropdown-footer"><i class="bi bi-box-arrow-right"></i>Keluar</a>
@@ -121,6 +118,12 @@
             SDGs Desa adalah pembangunan total atas desa. Seluruh aspek pembangunan yang digagas PBB sejak pendirian hingga kini diterapkan, seluruh warga desa harus menjadi pemanfaatnya, tidak ada yang terlewat. Dan, kemajuan tiada akan berhenti, melainkan berkelanjutan bagi generasi-generasi mendatang. Mewujudkan desa tanpa kemiskinan, tanpa kelaparan, layak air bersih dan sanitasi, berenergi bersih dan terbarukan, infrastruktur dan inovasi sesuai kebutuhan. Warganya sehat dan sejahtera, menerima pendidikan berkualitas, perempuan berpartisipasi, menumbuhkan ekonomi merata, konsumsi dan produksi sadar lingkungan. Tinggal di permukiman yang aman dan nyaman, tanggap perubahan iklim, peduli lingkungan laut dan darat, damai berkeadilan, bermitra membangun desa.
           </p>
         </div>
+        <!-- <div class="row content">
+          <div class="col-lg-6">
+            <a href="#" class="btn-learn-more">Learn More</a>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0"></div>
+        </div> -->
       </div>
     </section><!-- End About Us Section -->
 
@@ -748,79 +751,6 @@
   <!-- Template Main JS File -->
   <script src="..\static\js\main.js"></script>
 
-  <!-- CHARTS -->
-  <script src="../static/plugins/dashboard/jquery/jquery.min.js"></script>
-  <!-- <script src="../static/plugins/dashboard/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-  <!-- <script src="../static/js/dashboard.js"></script> -->
-  <script src="../static/plugins/dashboard/chart.js/Chart.min.js"></script>
-  <!-- <script src="../static/js/demo.js"></script> -->
-
-  <script>
- $(function () {
-  'use strict'
-    // Sales graph chart
-    var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
-    // $('#revenue-chart').get(0).getContext('2d');
-
-    var salesGraphChartData = {
-      labels: ['{{ data.time[0] }}', '{{ data.time[1] }}','{{ data.time[2] }}','{{ data.time[3] }}','{{ data.time[4] }}','{{ data.time[5] }}'],
-      datasets: [
-        {
-          label: 'Harga Beras (Rp)',
-          fill: false,
-          borderWidth: 2,
-          lineTension: 0,
-          spanGaps: true,
-          borderColor: '#3c8dbc',
-          pointRadius: 3,
-          pointHoverRadius: 7,
-          pointColor: '#3c8dbc',
-          pointBackgroundColor: '#3c8dbc',
-          data: ['{{ data.price[0] }}', '{{ data.price[1] }}', '{{ data.price[2] }}', '{{ data.price[3] }}', '{{ data.price[4] }}', '{{ data.price[5] }}', '11000', '10000']
-        }
-      ]
-    }
-
-    var salesGraphChartOptions = {
-      maintainAspectRatio: false,
-      responsive: true,
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          ticks: {
-            fontColor: '#212529'
-          },
-          gridLines: {
-            display: false,
-            color: '#212529',
-            drawBorder: false
-          }
-        }],
-        yAxes: [{
-          ticks: {
-            stepSize: 200,
-            fontColor: '#212529'
-          },
-          gridLines: {
-            display: true,
-            color: 'rgba(52, 58, 64, .3)',
-            drawBorder: false
-          }
-        }]
-      }
-    }
-
-    // This will get the first returned node in the jQuery collection.
-    // eslint-disable-next-line no-unused-vars
-    var salesGraphChart = new Chart(salesGraphChartCanvas, { // lgtm[js/unused-local-variable]
-      type: 'line',
-      data: salesGraphChartData,
-      options: salesGraphChartOptions
-    })
-  })
-  </script>
 </body>
 
 </html>

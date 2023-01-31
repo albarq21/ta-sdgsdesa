@@ -74,20 +74,15 @@
                         <td>{{row.email}}</td>
                         <td>{{row.telp}}</td>
                         <td>
-                          {% if row.level==1 %}Admin{% endif %}
-                          {% if row.level==2 %}Operator Geospasial{% endif %}
-                          {% if row.level==3 %}Operator Non-Geospasial{% endif %}
-                          {% if row.level==4 %}Super User{% endif %}
-                          {% if row.level==5 %}User{% endif %}
+                          {% if row.lvl==1 %}Admin{% endif %}
+                          {% if row.lvl==2 %}Operator Geospasial{% endif %}
+                          {% if row.lvl==3 %}Operator Non-Geospasial{% endif %}
+                          {% if row.lvl==4 %}Super User{% endif %}
+                          {% if row.lvl==5 %}User{% endif %}
                         </td>
                         <td>
-<<<<<<< HEAD
                           <a class="edit-input-data-btn" href="/input-data/data-user/update/{{row.id}}" data-toggle="modal" data-target="#modaledit{{row.id}}">Ubah</a>
                           <a class="delete-input-data-btn" href="/input-data/data-user/delete/{{row.id}}" data-toggle="modal" data-target="#modaldelete{{row.id}}">Hapus</a>
-=======
-                          <a class="edit-input-data-btn" href="/input-data/data-user/update/{{row.id_users}}" data-toggle="modal" data-target="#modaledit{{row.id_users}}">Ubah</a>
-                          <a class="delete-input-data-btn" href="/input-data/data-user/delete/{{row.id_users}}" data-toggle="modal" data-target="#modaldelete{{row.id_users}}">Hapus</a>
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                         </td>
                       </tr>
                     {% endfor %}
@@ -111,7 +106,7 @@
 
   <!-- Modal Edit User-->
   {% for row in user %}
-    <div id="modaledit{{row.id_users}}" class="modal fade" role="dialog">
+    <div id="modaledit{{row.id}}" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -120,11 +115,7 @@
             <div class="modal-body card-body register-card-body">
               <form action="{{ url_for('auth.input_data_user_update') }}" method="POST">
                   <div class="form-group input-group">
-<<<<<<< HEAD
                     <input type="hidden"  name="id" value="{{row.id}}">
-=======
-                    <input type="hidden"  name="id" value="{{row.id_users}}">
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                     <input type="text" class="form-control" name="name" placeholder="Full Name" value="{{row.nama}}">
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -150,21 +141,12 @@
                   </div>
                   <div class="form-group input-group">
                     <select name="level" class="form-control" required>
-<<<<<<< HEAD
                       <option value="{{row.lvl}}" selected="selected" hidden="hidden">
                         {% if row.lvl==1 %}Admin{% endif %}
                         {% if row.lvl==2 %}Operator Geospasial{% endif %}
                         {% if row.lvl==3 %}Operator Non-Geospasial{% endif %}
                         {% if row.lvl==4 %}Super User{% endif %}
                         {% if row.lvl==5 %}User{% endif %}
-=======
-                      <option value="{{row.level}}" selected="selected" hidden="hidden">
-                        {% if row.level==1 %}Admin{% endif %}
-                        {% if row.level==2 %}Operator Geospasial{% endif %}
-                        {% if row.level==3 %}Operator Non-Geospasial{% endif %}
-                        {% if row.level==4 %}Super User{% endif %}
-                        {% if row.level==5 %}User{% endif %}
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                       </option>
                       <option value="1">Admin</option>
                       <option value="2">Operator Geospasial</option>
@@ -207,11 +189,7 @@
                   </div>
                 </div>
                 <div class="form-group input-group">
-<<<<<<< HEAD
                   <input type="number" class="form-control" name="nohp" placeholder="Telp/No. Hp" required>
-=======
-                  <input type="number" class="form-control" name="telp" placeholder="Telp/No. Hp" required>
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                   <div class="input-group-append">
                     <div class="input-group-text">
                       <span class="fas fa-address-book"></span>
@@ -268,13 +246,8 @@
   </div>
 
   <!-- Modal Delete User-->
-<<<<<<< HEAD
   <!-- {% for row in user %}
     <div id="modaldelete{{row.id}}" class="modal fade" role="dialog">
-=======
-  {% for row in user %}
-    <div id="modaldelete{{row.id_users}}" class="modal fade" role="dialog">
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
       <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -283,11 +256,7 @@
             <div class="modal-body card-body register-card-body">
               <h6><b>Full Name</b></h6>
               <div class="form-group input-group">
-<<<<<<< HEAD
                 <input type="hidden"  name="id" value="{{row.id}}">
-=======
-                <input type="hidden"  name="id" value="{{row.id_users}}">
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                 <input type="text" class="form-control" value="{{row.nama}}" disabled>
                 <div class="input-group-append">
                   <div class="input-group-text">
@@ -316,19 +285,11 @@
               <h6><b>Level</b></h6>
               <div class="form-group input-group mb-3">
                 <input type="text" class="form-control"
-<<<<<<< HEAD
                   {% if row.lvl==1 %}value="Admin"{% endif %}
                   {% if row.lvl==2 %}value="Operator Geospasial"{% endif %}
                   {% if row.lvl==3 %}value="Operator Non-Geospasial"{% endif %}
                   {% if row.lvl==4 %}value="Super User"{% endif %}
                   {% if row.lvl==5 %}value="User"{% endif %}
-=======
-                  {% if row.level==1 %}value="Admin"{% endif %}
-                  {% if row.level==2 %}value="Operator Geospasial"{% endif %}
-                  {% if row.level==3 %}value="Operator Non-Geospasial"{% endif %}
-                  {% if row.level==4 %}value="Super User"{% endif %}
-                  {% if row.level==5 %}value="User"{% endif %}
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                 disabled>
                 <div class="input-group-append">
                   <div class="input-group-text">
@@ -338,11 +299,7 @@
               </div>
               <form action="{{ url_for('auth.input_data_user_delete') }}" method="POST">
                   <div class="modal-footer">
-<<<<<<< HEAD
                     <input type="hidden"  name="id" value="{{row.id}}">
-=======
-                    <input type="hidden"  name="id" value="{{row.id_users}}">
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                     <button class="btn btn-primary btn-dgr" type="submit">Hapus</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                   </div>
@@ -350,11 +307,7 @@
             </div>
         </div>
       </div>
-<<<<<<< HEAD
     </div> -->
-=======
-    </div>
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
   {% endfor %}
 {% endblock %}
 

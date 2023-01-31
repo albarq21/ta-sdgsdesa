@@ -70,22 +70,13 @@
                   <tbody>
                     {% for row in kelompok_tani %}
                       <tr>
-<<<<<<< HEAD
                         <td>{{row.id}}</td>
-=======
-                        <td>{{row.id_poktan}}</td>
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                         <td>{{row.nama}}</td>
                         <td>{{row.telp}}</td>
                         <td>{{row.no_sk}}</td>
                         <td>
-<<<<<<< HEAD
                           <a class="edit-input-data-btn" href="/input-data/data-kelompok-tani/update/{{row.id}}" data-toggle="modal" data-target="#modaledit{{row.id}}">Ubah</a>
                           <a class="delete-input-data-btn" href="/input-data/data-kelompok-tani/delete/{{row.id}}" data-toggle="modal" data-target="#modaldelete{{row.id}}">Hapus</a>
-=======
-                          <a class="edit-input-data-btn" href="/input-data/data-kelompok-tani/update/{{row.id_poktan}}" data-toggle="modal" data-target="#modaledit{{row.id_poktan}}">Ubah</a>
-                          <a class="delete-input-data-btn" href="/input-data/data-kelompok-tani/delete/{{row.id_poktan}}" data-toggle="modal" data-target="#modaldelete{{row.id_poktan}}">Hapus</a>
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                         </td>
                       </tr>
                     {% endfor %}
@@ -109,11 +100,7 @@
 
   <!-- Modal Edit Kelompok Tani-->
   {% for row in kelompok_tani %}
-<<<<<<< HEAD
     <div id="modaledit{{row.id}}" class="modal fade" role="dialog">
-=======
-    <div id="modaledit{{row.id_poktan}}" class="modal fade" role="dialog">
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
       <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -122,11 +109,7 @@
             <div class="modal-body card-body register-card-body">
               <form action="{{ url_for('main.input_data_kelompok_tani_update') }}" method="POST">
                 <div class="form-group input-group">
-<<<<<<< HEAD
                   <input type="hidden"  name="id_kelompok_tani" value="{{row.id}}">
-=======
-                  <input type="hidden"  name="id_kelompok_tani" value="{{row.id_poktan}}">
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                   <input type="text" class="form-control" name="nama" placeholder="Nama Kelompok Tani" value="{{row.nama}}">
                   <div class="input-group-append">
                     <div class="input-group-text">
@@ -174,11 +157,7 @@
                 <select name="provinsi" id="prov-add-response" class="form-control add" required> 
                   <option value="" disabled selected hidden>Provinsi</option>  
                   {% for row in provinsi %} 
-<<<<<<< HEAD
                     <option value="{{ row.id }}">{{ row.id }} | {{ row.nama }}</option>
-=======
-                    <option value="{{ row.id_prov }}">{{ row.id_prov }} | {{ row.nama }}</option>
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                   {% endfor %}
                 </select>
                 <div class="input-group-append">
@@ -218,11 +197,7 @@
                 </div>
               </div> 
               <div class="form-group input-group">
-<<<<<<< HEAD
                 <input type="number" class="form-control" name="id" placeholder="ID Kelompok Tani" required>
-=======
-                <input type="number" class="form-control" name="id_poktan" placeholder="ID Kelompok Tani" required>
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-sort-numeric-up"></span>
@@ -265,11 +240,7 @@
 
   <!-- Modal Delete Kelompok Tani-->
   {% for row in kelompok_tani %}
-<<<<<<< HEAD
     <div id="modaldelete{{row.id}}" class="modal fade" role="dialog">
-=======
-    <div id="modaldelete{{row.id_poktan}}" class="modal fade" role="dialog">
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
       <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -278,11 +249,7 @@
             <div class="modal-body card-body register-card-body">
               <h6><b>ID</b></h6>
               <div class="form-group input-group">
-<<<<<<< HEAD
                 <input type="text" class="form-control" value="{{row.id}}" disabled>
-=======
-                <input type="text" class="form-control" value="{{row.id_poktan}}" disabled>
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-sort-numeric-up"></span>
@@ -318,11 +285,7 @@
               </div>
               <form action="{{ url_for('main.input_data_kelompok_tani_delete') }}" method="POST">
                   <div class="modal-footer">
-<<<<<<< HEAD
                     <input type="hidden"  name="id" value="{{row.id}}">
-=======
-                    <input type="hidden"  name="id_poktan" value="{{row.id_poktan}}">
->>>>>>> 1a54b183e13a2e1232a8eb68a9a001d2ce604b8a
                     <button class="btn btn-primary btn-dgr" type="submit">Hapus</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                   </div>

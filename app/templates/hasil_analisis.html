@@ -226,6 +226,7 @@
                                 <thead>
                                   <tr>
                                     <th scope="col">id</th>
+                                    <th scope="col">hasil analisis</th>
                                     <th scope="col">Nomor Kartu Keluarga</th>
                                     <th scope="col">Jumlah Anggota Keluarga</th>
                                     <th scope="col">Nama Kepala Keluarga</th>
@@ -249,6 +250,7 @@
                                   {% for row in Kuisioner_Individu %}
                                   <tr>
                                     <th scope="row">{{row.id}}</th>
+                                    <td>{{row.Analisis_Pengeluaran_Perkapita}}</td>
                                     <td>{{row.Nomor_KK}}</td>
                                     <td>{{row.Jumlah_Anggota_Keluarga}}</td>
                                     <td>{{row.Nama_Kepala_Keluarga}}</td>
@@ -414,6 +416,7 @@
                                 <thead>
                                   <tr>
                                     <th scope="col">id</th>
+                                    <th scope="col">hasil analisis</th>
                                     <th scope="col">Nomor Kartu Keluarga</th>
                                     <th scope="col">Jumlah Anggota Keluarga</th>
                                     <th scope="col">Nama Kepala Keluarga</th>
@@ -437,6 +440,7 @@
                                   {% for row in Kuisioner_Individu %}
                                   <tr>
                                     <th scope="row">{{row.id}}</th>
+                                    <td>{{row.Analisis_Pengeluaran_Perkapita}}</td>
                                     <td>{{row.Nomor_KK}}</td>
                                     <td>{{row.Jumlah_Anggota_Keluarga}}</td>
                                     <td>{{row.Nama_Kepala_Keluarga}}</td>
